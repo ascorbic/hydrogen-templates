@@ -1,4 +1,4 @@
-name: Compile templates
+name: Update templates
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    name: Compile the typescript templates and push them to main
+    name: Update templates from the Hydrogen repository
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: Shopify/hydrogen
+          ref: dist
           path: upstream
 
       - name: Setup Node
@@ -32,5 +33,5 @@ jobs:
           git config user.email "bot@netlify.com"
           git config user.name "netlibot"
           git show-ref
-          # git commit -m "Update templates from Hydrogen"
-          # git push origin HEAD:dist --force
+          git commit -m "Update templates from Hydrogen"
+          git push origin HEAD:main --force
