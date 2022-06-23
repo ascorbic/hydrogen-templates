@@ -4,8 +4,6 @@ Hydrogen is a React framework and SDK that you can use to build fast and dynamic
 
 [Check out the docs](https://shopify.dev/custom-storefronts/hydrogen)
 
-[Run this template on StackBlitz](https://stackblitz.com/github/Shopify/hydrogen/tree/stackblitz/templates/demo-store)
-
 ## Getting started
 
 **Requirements:**
@@ -38,7 +36,7 @@ npm run build
 
 ## Previewing a production build
 
-To run a local preview of your Hydrogen app in an environment similar to Oxygen, build your Hydrogen app and then run `npm run preview`:
+To run a local preview of your Hydrogen app in an environment similar to Netlify, build your Hydrogen app and then run `npm run preview`:
 
 ```bash
 npm run build

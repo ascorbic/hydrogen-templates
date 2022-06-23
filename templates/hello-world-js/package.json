@@ -12,7 +12,8 @@
   "devDependencies": {
     "@shopify/cli": "latest",
     "@shopify/cli-hydrogen": "latest",
-    "vite": "^2.9.0"
+    "vite": "^2.9.0",
+    "@netlify/hydrogen-platform": "^1.0.0"
   },
   "dependencies": {
     "@shopify/hydrogen": "^1.0.0",
