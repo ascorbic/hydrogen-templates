@@ -30,16 +30,22 @@ async function addPlatformDependency(root) {
   await writeFile(packageJsonFile, JSON.stringify(templatePackageJson, null, 2))
 }
 
+const commonFiles = resolve('skeleton', 'common')
+
 const templates = await readdir(destination)
 for (const template of templates) {
   if (!template.endsWith('-js') && !template.endsWith('-ts')) {
     continue
   }
   const templateDir = resolve(destination, template)
+  await cp(commonFiles, templateDir, { recursive: true })
   await addPlatformDependency(templateDir)
   // Strip the -ts or -js from the name
   const normalizedTemplate = template.slice(0, -3)
   await cp(resolve('skeleton', normalizedTemplate), templateDir, {
+    recursive: true,
+  })
+  await cp(resolve('skeleton', template), templateDir, {
     recursive: true,
   })
 }
